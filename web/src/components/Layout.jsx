@@ -20,7 +20,6 @@ import Icon from "components/Icon";
 import DrawerItem from "components/DrawerItem";
 import Footer from "components/Footer";
 import ScrollbarWrapper from "components/ScrollbarWrapper";
-import { useAuth } from "components/AuthProvider";
 import { login } from "utils/auth";
 
 // define top bar width
@@ -86,7 +85,6 @@ function Bar({ onOpenDrawer }) {
 function Drawer({ drawerOpen, onCloseDrawer }) {
   const theme = useTheme();
   const pathname = usePathname();
-  const { user } = useAuth();
 
   const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
 

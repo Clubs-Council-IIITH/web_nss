@@ -13,7 +13,7 @@ services:
         - ENV=prod
       # - ./static_files:/web/static_files
     env_file:
-      - ./web/.env
+      - $NSS_CONFIG_PATH/web
     networks:
       - default
       - reverse_proxy

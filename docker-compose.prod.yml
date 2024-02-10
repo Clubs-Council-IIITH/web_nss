@@ -1,0 +1,20 @@
+version: "3.8"
+
+networks:
+  reverse_proxy:
+    external: true
+
+services:
+  web:
+    build:
+      context: ./web
+      dockerfile: Dockerfile
+      args:
+        - ENV=prod
+      # - ./static_files:/web/static_files
+    env_file:
+      - ./web/.env
+    networks:
+      - default
+      - reverse_proxy
+    restart: unless-stopped

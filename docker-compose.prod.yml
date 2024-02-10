@@ -1,8 +1,8 @@
 version: "3.8"
 
-networks:
-  reverse_proxy:
-    external: true
+# networks:
+#   reverse_proxy:
+#     external: true
 
 services:
   web:
@@ -16,5 +16,5 @@ services:
       - $NSS_CONFIG_PATH/web
     networks:
       - default
-      - reverse_proxy
+      # - reverse_proxy
     restart: unless-stopped

@@ -3,7 +3,7 @@ import { cacheExchange, createClient, fetchExchange } from "urql/core";
 import { registerUrql } from "@urql/next/rsc";
 
 const GRAPHQL_ENDPOINT =
-  process.env.GRAPHQL_ENDPOINT || "http://gateway/graphql";
+  process.env.GRAPHQL_ENDPOINT || "https://clubs.iiit.ac.in/graphql";
 
 const makeClient = () => {
   return createClient({

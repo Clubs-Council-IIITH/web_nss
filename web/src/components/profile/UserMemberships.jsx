@@ -66,7 +66,7 @@ export default function UserMemberships({ rows = [] }) {
 
   return (
     <>
-      {rows?.filter((row) => row.cid === CLUB_ID)?.length ?
+      {rows?.filter((row) => row.cid === CLUB_ID)?.length ? (
         <DataGrid
           autoHeight
           rows={rows?.filter((row) => row.cid === CLUB_ID)}
@@ -101,14 +101,16 @@ export default function UserMemberships({ rows = [] }) {
             },
             // Turn off hover effect
             "& .MuiDataGrid-row:hover": {
-              backgroundColor: "inherit"
+              backgroundColor: "inherit",
             },
             "& .MuiDataGrid-row.Mui-hovered": {
               backgroundColor: "inherit",
             },
           }}
-        /> : "No Memberships Found!"
-      }
+        />
+      ) : (
+        "No Memberships Found!"
+      )}
     </>
   );
 }

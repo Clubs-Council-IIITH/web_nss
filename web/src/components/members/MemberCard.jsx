@@ -15,7 +15,7 @@ export default async function MemberCard({ uid, poc, roles }) {
       userInput: {
         uid: uid,
       },
-    }
+    },
   );
   const user = { ...userMeta, ...userProfile };
 
@@ -26,7 +26,7 @@ export default async function MemberCard({ uid, poc, roles }) {
       sx={{
         backgroundColor: "inherit",
         border: "none",
-        boxShadow: 0
+        boxShadow: 0,
       }}
     >
       <CardActionArea

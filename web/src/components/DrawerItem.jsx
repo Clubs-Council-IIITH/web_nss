@@ -26,18 +26,17 @@ export default function DrawerItem({ title, icon, path = "", onClick = null }) {
 
   return (
     <ListItemButton
-      {
-      ...(onClick ? { onClick: () => onClick(pathname) }
+      {...(onClick
+        ? { onClick: () => onClick(pathname) }
         : {
-          component: Link,
-          href: path,
-        })
-      }
+            component: Link,
+            href: path,
+          })}
       {...(externalLink
         ? {
-          rel: "noopener noreferrer",
-          target: "_blank",
-        }
+            rel: "noopener noreferrer",
+            target: "_blank",
+          }
         : {})}
       sx={{
         ...theme.typography.body2,
@@ -56,7 +55,7 @@ export default function DrawerItem({ title, icon, path = "", onClick = null }) {
           backgroundColor: alpha(
             theme.palette.accent,
             // theme.palette.action.selectedOpacity
-            1
+            1,
           ),
         }),
       }}

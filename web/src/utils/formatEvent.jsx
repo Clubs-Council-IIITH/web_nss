@@ -1,8 +1,4 @@
-import {
-  audienceMap,
-  audienceColorMap,
-  locationMap,
-} from "constants/events";
+import { audienceMap, audienceColorMap, locationMap } from "constants/events";
 
 export function audienceLabels(audience) {
   return audience?.map((a) => ({

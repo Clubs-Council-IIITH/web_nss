@@ -28,10 +28,7 @@ export default async function Members() {
   return (
     <Box>
       <Box my={4}>
-        <ClubInfo
-          name={club.name}
-          logo={club.logo}
-        />
+        <ClubInfo name={club.name} logo={club.logo} />
       </Box>
       <Box>
         <MembersGrid clubid={id} />

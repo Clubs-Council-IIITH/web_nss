@@ -43,14 +43,14 @@ export default function EventsFilter({ name, club, state }) {
 
       return params.toString();
     },
-    [searchParams]
+    [searchParams],
   );
 
   // show both upcoming and completed if no state is selected
   useEffect(() => {
     if (state.length === 0)
       router.push(
-        `${pathname}?upcoming=true&completed=true${club ? `&club=${club}` : ""}`
+        `${pathname}?upcoming=true&completed=true${club ? `&club=${club}` : ""}`,
       );
   }, [state]);
 
@@ -81,39 +81,34 @@ export default function EventsFilter({ name, club, state }) {
         <Grid item xs={12}>
           <Stack
             component="form"
-            direction={isDesktop? "row" : "column"}
+            direction={isDesktop ? "row" : "column"}
             flexWrap="wrap"
             spacing={1}
             onSubmit={(e) => {
               e.preventDefault();
               router.push(
-                `${pathname}?${createQueryString("name", targetName)}`
+                `${pathname}?${createQueryString("name", targetName)}`,
               );
             }}
           >
-            <Grid sx={{flex: 2}}>
-
-            <TextField
-              label="Search by name"
-              autoComplete="off"
-              variant="outlined"
-              fullWidth
-              onChange={(e) => setTargetName(e.target.value)}
-              value={targetName}
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <Icon variant="search" />
-                  </InputAdornment>
-                ),
-              }}
-            />
+            <Grid sx={{ flex: 2 }}>
+              <TextField
+                label="Search by name"
+                autoComplete="off"
+                variant="outlined"
+                fullWidth
+                onChange={(e) => setTargetName(e.target.value)}
+                value={targetName}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <Icon variant="search" />
+                    </InputAdornment>
+                  ),
+                }}
+              />
             </Grid>
-            <Button
-              type="submit"
-              variant="contained"
-              sx={{ mr: 1}}
-            >
+            <Button type="submit" variant="contained" sx={{ mr: 1 }}>
               Search
             </Button>
 
@@ -122,16 +117,17 @@ export default function EventsFilter({ name, club, state }) {
                 fullWidth
                 value={state}
                 color="primary"
-                sx={{ height: "100%", mx: isDesktop ? 5 : 0}}
+                sx={{ height: "100%", mx: isDesktop ? 5 : 0 }}
                 onChange={(e) => {
                   // don't do anything if all states are being unselected
-                  if (state.length === 1 && state.includes(e.target.value)) return;
+                  if (state.length === 1 && state.includes(e.target.value))
+                    return;
 
                   return router.push(
                     `${pathname}?${createQueryString(
                       e.target.value,
-                      !state.includes(e.target.value)
-                    )}`
+                      !state.includes(e.target.value),
+                    )}`,
                   );
                 }}
               >

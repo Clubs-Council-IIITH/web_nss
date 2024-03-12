@@ -1,5 +1,7 @@
-const FILESERVER_URL = process.env.NEXT_PUBLIC_FILESERVER_URL || "https://clubs.iiit.ac.in";
-const STATIC_URL = process.env.NEXT_PUBLIC_STATIC_URL || "https://clubs.iiit.ac.in/static";
+const FILESERVER_URL =
+  process.env.NEXT_PUBLIC_FILESERVER_URL || "https://clubs.iiit.ac.in";
+const STATIC_URL =
+  process.env.NEXT_PUBLIC_STATIC_URL || "https://clubs.iiit.ac.in/static";
 
 export function getStaticFile(filepath) {
   return `${STATIC_URL}/${filepath}`;

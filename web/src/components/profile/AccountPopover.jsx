@@ -163,7 +163,7 @@ export default function AccountPopover() {
                         <Icon variant={option.icon} sx={{ mr: 2 }} />
                         {option.label}
                       </MenuItem>
-                    )
+                    ),
                   )}
                 </Stack>
               </>

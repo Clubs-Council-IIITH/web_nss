@@ -27,19 +27,10 @@ export default function EventCard({
         </Box>
 
         <Stack spacing={1} sx={{ p: 3 }}>
-          <Typography
-            variant="subtitle2"
-            fontSize={16}
-            noWrap
-            color="white"
-          >
+          <Typography variant="subtitle2" fontSize={16} noWrap color="white">
             {name}
           </Typography>
-          <Typography
-            variant="caption"
-            noWrap
-            color="white"
-          >
+          <Typography variant="caption" noWrap color="white">
             <DateTime dt={datetimeperiod?.[0]} showWeekDay={true} />
           </Typography>
         </Stack>

@@ -189,7 +189,7 @@ export default function Footer({ club = {} }) {
         <Box sx={{ flexGrow: 1 }} />
 
         <Typography variant="body2" fontWeight={500} color="black">
-          © {new Date().getFullYear()}, IIIT Hyderabad
+          © 2023-{new Date().getFullYear()}, IIIT Hyderabad
         </Typography>
 
         <Box sx={{ flexGrow: 1 }} />

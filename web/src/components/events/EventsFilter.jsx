@@ -7,29 +7,22 @@ import { useState, useEffect, useCallback } from "react";
 import {
   Button,
   Container,
-  Typography,
   TextField,
   Grid,
-  FormControl,
-  Select,
-  MenuItem,
-  InputLabel,
   ToggleButtonGroup,
   InputAdornment,
   ToggleButton,
   Stack,
 } from "@mui/material";
 
-import { useToast } from "components/Toast";
 import Icon from "components/Icon";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
-export default function EventsFilter({ name, club, state }) {
+export default function EventsFilter({ name, state }) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const { triggerToast } = useToast();
 
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
@@ -50,27 +43,9 @@ export default function EventsFilter({ name, club, state }) {
   useEffect(() => {
     if (state.length === 0)
       router.push(
-        `${pathname}?upcoming=true&completed=true${club ? `&club=${club}` : ""}`,
+        `${pathname}?upcoming=true&completed=true`,
       );
   }, [state]);
-
-  // fetch list of clubs
-  // const [clubs, setClubs] = useState([]);
-  // useEffect(() => {
-  //   (async () => {
-  //     let res = await fetch("/actions/clubs/ids");
-  //     res = await res.json();
-  //     if (!res.ok) {
-  //       triggerToast({
-  //         title: "Unable to fetch clubs",
-  //         messages: res.error.messages,
-  //         severity: "error",
-  //       });
-  //     } else {
-  //       setClubs(res.data);
-  //     }
-  //   })();
-  // }, []);
 
   // track name field
   const [targetName, setTargetName] = useState(name || "");
@@ -108,7 +83,11 @@ export default function EventsFilter({ name, club, state }) {
                 }}
               />
             </Grid>
-            <Button type="submit" variant="contained" sx={{ mr: 1 }}>
+            <Button
+              type="submit"
+              variant="contained"
+              sx={{ mr: 1, color: "white" }}
+            >
               Search
             </Button>
 

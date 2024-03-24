@@ -8,7 +8,7 @@ export function login(pathname) {
 
   // redirect to CAS login
   window.location.replace(
-    "https://clubs.iiit.ac.in/login/https://clubs.iiit.ac.in",
+    "https://clubs.iiit.ac.in/login/https://clubs.iiit.ac.in/manage/events/",
   );
 }
 

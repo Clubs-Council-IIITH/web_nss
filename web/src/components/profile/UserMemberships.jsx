@@ -3,6 +3,9 @@
 import { useState, useEffect } from "react";
 
 import { DataGrid } from "@mui/x-data-grid";
+import { Typography } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 import { useToast } from "components/Toast";
 
@@ -10,6 +13,8 @@ const CLUB_ID = process.env.NEXT_PUBLIC_CLUB_ID || "nss";
 
 export default function UserMemberships({ rows = [] }) {
   const { triggerToast } = useToast();
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   // fetch cid -> club name mapping
   const [clubs, setClubs] = useState([]);
@@ -38,21 +43,57 @@ export default function UserMemberships({ rows = [] }) {
     {
       field: "name",
       headerName: "Role",
-      flex: 7,
-      renderCell: (p) => p.value,
+      flex: isMobile ? null : 7,
+      renderCell: (p) => {
+        return (
+          <Typography
+            variant="body2"
+            style={{
+              overflowWrap: "break-word",
+              wordWrap: "break-word",
+              msWordBreak: "break-all",
+              wordBreak: "break-all",
+              msHyphens: "auto",
+              MozHyphens: "auto",
+              WebkitHyphens: "auto",
+              hyphens: "auto",
+            }}
+          >
+            {p.value}
+          </Typography>
+        );
+      },
     },
     {
       field: "cid",
       headerName: "Club",
-      flex: 5,
-      renderCell: (p) => clubs[p.value],
+      flex: isMobile ? null : 5,
+      renderCell: (p) => {
+        return (
+          <Typography
+            variant="body2"
+            style={{
+              overflowWrap: "break-word",
+              wordWrap: "break-word",
+              msWordBreak: "break-all",
+              wordBreak: "break-all",
+              msHyphens: "auto",
+              MozHyphens: "auto",
+              WebkitHyphens: "auto",
+              hyphens: "auto",
+            }}
+          >
+            {clubs[p.value]}
+          </Typography>
+        );
+      },
     },
     {
       field: "startYear",
       headerName: "Start Year",
       headerAlign: "center",
       align: "center",
-      flex: 3,
+      flex: isMobile ? null : 3,
     },
     {
       field: "endYear",
@@ -60,7 +101,7 @@ export default function UserMemberships({ rows = [] }) {
       headerAlign: "center",
       align: "center",
       valueGetter: ({ row }) => row.endYear || "-",
-      flex: 3,
+      flex: isMobile ? null : 3,
     },
   ];
 
@@ -69,6 +110,7 @@ export default function UserMemberships({ rows = [] }) {
       {rows?.filter((row) => row.cid === CLUB_ID)?.length ? (
         <DataGrid
           autoHeight
+          getRowHeight={() => (isMobile ? "auto" : "none")}
           rows={rows?.filter((row) => row.cid === CLUB_ID)}
           columns={columns}
           disableRowSelectionOnClick

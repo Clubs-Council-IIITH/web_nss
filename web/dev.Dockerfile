@@ -11,5 +11,5 @@ WORKDIR /web
 COPY --from=node_cache /cache/ /cache/
 COPY dev.entrypoint.sh /cache/
 RUN chmod +x /cache/dev.entrypoint.sh
-RUN printf "NEXT_PUBLIC_ENV=${ENV}" >> .env.example
+RUN printf "NEXT_PUBLIC_ENV=${ENV}" >> .env
 ENTRYPOINT [ "/cache/dev.entrypoint.sh" ]

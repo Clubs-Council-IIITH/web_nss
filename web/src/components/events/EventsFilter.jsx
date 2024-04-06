@@ -42,9 +42,7 @@ export default function EventsFilter({ name, state }) {
   // show both upcoming and completed if no state is selected
   useEffect(() => {
     if (state.length === 0)
-      router.push(
-        `${pathname}?upcoming=true&completed=true`,
-      );
+      router.push(`${pathname}?upcoming=true&completed=true`);
   }, [state]);
 
   // track name field

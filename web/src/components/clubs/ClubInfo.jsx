@@ -45,7 +45,7 @@ export default function ClubInfo({
         </Box>
       </Box>
       <Box pt={2}>
-        <Typography variant="body1" mx={1}>
+        <Typography variant="body1" mx={1} sx={{ whiteSpace: "pre-wrap" }}>
           {description}
         </Typography>
       </Box>

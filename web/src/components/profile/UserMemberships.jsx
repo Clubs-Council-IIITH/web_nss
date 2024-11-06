@@ -63,6 +63,7 @@ export default function UserMemberships({ rows = [] }) {
           </Typography>
         );
       },
+      display: "flex",
     },
     {
       field: "cid",
@@ -87,6 +88,7 @@ export default function UserMemberships({ rows = [] }) {
           </Typography>
         );
       },
+      display: "flex",
     },
     {
       field: "startYear",
@@ -100,7 +102,7 @@ export default function UserMemberships({ rows = [] }) {
       headerName: "End Year",
       headerAlign: "center",
       align: "center",
-      valueGetter: ({ row }) => row.endYear || "-",
+      valueGetter: (value, row, column, apiRef) => row.endYear || "-",
       flex: isMobile ? null : 3,
     },
   ];
@@ -122,7 +124,7 @@ export default function UserMemberships({ rows = [] }) {
             pagination: { paginationModel: { pageSize: 5 } },
           }}
           disableColumnMenu={true}
-          pageSizeOptions={[5, 10, 25]}
+          pageSizeOptions={[5, 10]}
           sx={{
             // disable cell selection style
             ".MuiDataGrid-cell:focus": {

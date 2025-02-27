@@ -117,6 +117,11 @@ function Drawer({ drawerOpen, onCloseDrawer }) {
         path="/gallery"
         icon={<Icon variant="photo-library-rounded" />}
       />
+      <DrawerItem
+        title="Community"
+        path="/community"
+        icon={<Icon variant="handshake-rounded" />}
+      />
     </List>
   );
 
